@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurora's Disney Birthday Trip — Cloud Nueve Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // Formspree endpoint
+  const FORMSPREE_URL = "https://formspree.io/f/xkopjogd";
+</script>
+<style>
+/* ── TOKENS ── */
+:root {
+  --mauve:        #7B6B8D;
+  --mauve-dark:   #5A4A6B;
+  --mauve-deep:   #3D2F52;
+  --mauve-mid:    #9C8DB0;
+  --mauve-light:  #C8BEDB;
+  --mauve-faint:  #EDE9F4;
+  --peach:        #E8A87C;
+  --peach-light:  #F5D0B5;
+  --peach-faint:  #FDF0E8;
+  --cream:        #FAF8F5;
+  --white:        #FFFFFF;
+  --ink:          #2C2438;
+  --ink-mid:      #5A5068;
+  --ink-light:    #8C839C;
+  --border:       #DDD7E8;
+  --border-light: #EDE9F4;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Nunito', system-ui, sans-serif;
+  --radius:       12px;
+  --radius-sm:    8px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); font-size: 14px; line-height: 1.65; color: var(--ink); background: var(--cream); }
+a { color: var(--mauve); text-decoration: none; }
+a:hover { color: var(--peach); text-decoration: underline; }
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--mauve-deep);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 16px;
+}
+.header-logo img { height: 52px; width: auto; object-fit: contain; }
+.header-title {
+  text-align: right;
+  flex: 1;
+}
+.header-title .trip-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+.header-title .trip-sub {
+  font-size: 11px;
+  color: var(--mauve-light);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── HERO BANNER ── */
+.hero {
+  background: linear-gradient(135deg, var(--mauve-deep) 0%, var(--mauve) 55%, var(--peach) 100%);
+  padding: 40px 32px 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.hero-left h1 {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+}
+.hero-left h1 em { font-style: italic; color: var(--peach-light); }
+.hero-left p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  margin-top: 8px;
+}
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+}
+
+/* ── TABS ── */
+.tab-bar {
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(61,47,82,0.08);
+}
+.tab-bar::-webkit-scrollbar { height: 3px; }
+.tab-bar::-webkit-scrollbar-thumb { background: var(--mauve-light); border-radius: 2px; }
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-light);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.02em;
+}
+.tab-btn:hover { color: var(--mauve); }
+.tab-btn.active { color: var(--mauve-dark); border-bottom-color: var(--peach); }
+.tab-btn .tab-icon { margin-right: 6px; }
+
+/* ── TAB PANELS ── */
+.tab-panel { display: none; padding: 32px; max-width: 1100px; margin: 0 auto; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION HEADING ── */
+.sec-head { margin-bottom: 24px; }
+.sec-head h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--mauve-deep);
+}
+.sec-head p { font-size: 13px; color: var(--ink-mid); margin-top: 4px; }
+
+/* ── CALLOUT ── */
+.callout {
+  border-left: 3px solid var(--peach);
+  background: var(--peach-faint);
+  padding: 14px 18px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--ink);
+}
+.callout strong { color: var(--mauve-dark); }
+.callout.mauve { border-left-color: var(--mauve); background: var(--mauve-faint); }
+.callout-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--mauve-dark);
+  margin-bottom: 5px;
+}
+
+/* ── CARD GRID ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card-grid.wide { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+
+/* ── HOTEL CARD ── */
+.h-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.h-card:hover { box-shadow: 0 6px 28px rgba(123,107,141,0.15); transform: translateY(-2px); }
+.h-card-badge {
+  padding: 5px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.badge-value    { background: #EDF5EE; color: #2A6B35; }
+.badge-moderate { background: var(--mauve-faint); color: var(--mauve-dark); }
+.badge-offsite  { background: var(--peach-faint); color: #7A4010; }
+.h-card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.h-card-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--mauve-deep);
+  line-height: 1.2;
+}
+.h-card-name a { color: var(--mauve-deep); }
+.h-card-name a:hover { color: var(--peach); text-decoration: none; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag {
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--mauve-faint);
+  color: var(--mauve-dark);
+}
+.tag.peach { background: var(--peach-faint); color: #7A4010; }
+.tag.green { background: #EDF5EE; color: #2A6B35; }
+.h-card-desc { font-size: 12.5px; color: var(--ink-mid); line-height: 1.55; }
+.feat-list { list-style: none; font-size: 12.5px; color: var(--ink); margin: 0; }
+.feat-list li {
+  padding: 4px 0;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+}
+.feat-list li:first-child { border-top: none; padding-top: 0; }
+.feat-list li::before {
+  content: '✦';
+  color: var(--peach);
+  font-size: 9px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.price-box {
+  background: linear-gradient(135deg, var(--mauve-faint), var(--peach-faint));
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-top: auto;
+}
+.price-box .price-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mauve);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.price-box .price-range {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--mauve-deep);
+}
+.price-box .price-note {
+  font-size: 11px;
+  color: var(--ink-mid);
+  margin-top: 2px;
+}
+.btn-link {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  background: var(--mauve);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-link:hover { background: var(--mauve-dark); color: var(--white); text-decoration: none; }
+.btn-link.outline {
+  background: transparent;
+  border: 1.5px solid var(--mauve);
+  color: var(--mauve);
+}
+.btn-link.outline:hover { background: var(--mauve); color: var(--white); }
+
+/* ── TIP CARDS ── */
+.tip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.tip-grid.tip-grid-2x3 { grid-template-columns: repeat(2, 1fr); }
+.tip-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.tip-icon { font-size: 24px; margin-bottom: 8px; }
+.tip-title { font-size: 13px; font-weight: 700; color: var(--mauve-deep); margin-bottom: 4px; }
+.tip-text  { font-size: 12px; color: var(--ink-mid); line-height: 1.55; }
+
+/* ── TABLES ── */
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  font-size: 12.5px;
+}
+.data-table th {
+  background: var(--mauve-deep);
+  color: var(--white);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.data-table td {
+  padding: 11px 14px;
+  border-top: 1px solid var(--border-light);
+  vertical-align: top;
+  color: var(--ink);
+}
+.data-table tr:nth-child(even) td { background: var(--mauve-faint); }
+.data-table tr:nth-child(odd) td  { background: var(--white); }
+.data-table td strong { color: var(--mauve-deep); font-weight: 700; }
+.pkg-badge {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pkg-a { background: var(--peach-faint); color: #7A4010; }
+.pkg-b { background: var(--mauve-faint); color: var(--mauve-dark); }
+.pkg-c { background: #FFF6E0; color: #7A5500; }
+.pkg-d { background: #EDF5EE; color: #2A6B35; }
+
+/* ── TICKETS ── */
+.ticket-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; align-items: stretch; }
+.ticket-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ticket-card-head {
+  background: var(--mauve-deep);
+  padding: 14px 16px;
+  color: var(--white);
+}
+.ticket-card-head .t-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+}
+.ticket-card-head .t-sub {
+  font-size: 11px;
+  color: var(--mauve-light);
+  margin-top: 2px;
+}
+.ticket-card-body { padding: 14px 16px; flex: 1; }
+.ticket-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid var(--border-light);
+  font-size: 12.5px;
+}
+.ticket-price-row:first-child { border-top: none; padding-top: 0; }
+.ticket-price-row .who { color: var(--ink-mid); }
+.ticket-price-row .amt { font-weight: 700; color: var(--mauve-deep); }
+.ticket-note { font-size: 11.5px; color: var(--ink-mid); margin-top: 10px; font-style: italic; }
+.ticket-actions { padding: 12px 16px 14px; display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--border-light); margin-top: auto; }
+
+/* ── DINING PLAN BOX ── */
+.dp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; align-items: stretch; }
+.dp-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.dp-card.featured { border-color: var(--peach); }
+.dp-card h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--mauve-deep);
+  margin-bottom: 6px;
+}
+.dp-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--peach);
+  margin-bottom: 4px;
+}
+.dp-price small { font-size: 13px; color: var(--ink-mid); font-weight: 400; }
+.dp-includes { font-size: 12.5px; color: var(--ink-mid); margin-bottom: 12px; }
+.dp-list { list-style: none; font-size: 12.5px; color: var(--ink); flex: 1; }
+.dp-list li {
+  padding: 4px 0;
+  border-top: 1px solid var(--border-light);
+  display: flex; gap: 7px; align-items: flex-start;
+}
+.dp-list li:first-child { border-top: none; }
+.dp-list li::before { content: '✓'; color: var(--peach); font-weight: 700; flex-shrink: 0; }
+.dp-card .btn-link { margin-top: auto; align-self: flex-start; }
+
+/* ── QUESTIONNAIRE ── */
+.q-wrapper {
+  max-width: 780px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.q-head {
+  background: linear-gradient(135deg, var(--mauve-deep), var(--mauve));
+  padding: 24px 28px;
+  color: var(--white);
+}
+.q-head h2 { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
+.q-head p  { font-size: 13px; color: rgba(255,255,255,0.78); margin-top: 4px; }
+.q-body    { padding: 28px; }
+
+.q-section { margin-bottom: 28px; }
+.q-section-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--mauve-deep);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 16px;
+}
+.q-item { margin-bottom: 16px; }
+.q-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.q-num {
+  width: 22px; height: 22px;
+  background: var(--mauve);
+  color: var(--white);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.q-hint { font-size: 11.5px; color: var(--ink-light); margin: -2px 0 6px 30px; font-style: italic; }
+.q-field {
+  width: 100%;
+  padding: 9px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--cream);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.q-field:focus {
+  border-color: var(--mauve);
+  box-shadow: 0 0 0 3px rgba(123,107,141,0.15);
+  background: var(--white);
+}
+textarea.q-field { min-height: 72px; resize: vertical; }
+.q-options { display: flex; flex-wrap: wrap; gap: 8px; margin-left: 30px; }
+.q-opt {
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: var(--white);
+  color: var(--ink-mid);
+  user-select: none;
+}
+.q-opt:hover, .q-opt.selected {
+  background: var(--mauve);
+  color: var(--white);
+  border-color: var(--mauve);
+}
+.q-check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-left: 30px;
+}
+.q-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink);
+  cursor: pointer;
+}
+.q-check input[type="checkbox"] {
+  accent-color: var(--mauve);
+  width: 15px; height: 15px;
+  cursor: pointer;
+}
+.q-required { color: var(--peach); font-size: 11px; margin-left: 4px; }
+
+/* ── SUBMIT BUTTON ── */
+.submit-area { text-align: center; padding-top: 12px; }
+.btn-submit {
+  background: linear-gradient(135deg, var(--mauve-deep), var(--mauve));
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  padding: 14px 48px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 18px rgba(61,47,82,0.3);
+}
+.btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── TOAST / STATUS ── */
+.form-status {
+  display: none;
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+.form-status.success { background: #EDF5EE; color: #2A6B35; display: block; }
+.form-status.error   { background: #FDE8E8; color: #8B2020; display: block; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--mauve-deep);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 24px 32px;
+  font-size: 12px;
+  margin-top: 40px;
+}
+.site-footer strong { color: var(--peach-light); }
+.site-footer a { color: var(--peach-light); }
+
+/* ── HELPERS ── */
+.mt16 { margin-top: 16px; }
+.mt24 { margin-top: 24px; }
+.spacer8 { height: 8px; }
+.text-sm { font-size: 12px; color: var(--ink-mid); }
+.star-divider { text-align: center; color: var(--mauve-light); letter-spacing: 0.6em; margin: 20px 0 8px; font-size: 11px; }
+.inline-link { color: var(--mauve); font-weight: 600; text-decoration: underline; }
+.inline-link:hover { color: var(--peach); }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-logo">
+    <div style="line-height:1.2;">
+      <div style="font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; font-weight:700; color:#ffffff; letter-spacing:0.02em;">Cloud Nueve Travels</div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif; font-size:13px; font-style:italic; font-weight:400; color:var(--mauve-light); letter-spacing:0.05em;">Curated Journeys, Elevated Moments</div>
+    </div>
+  </div>
+  <div class="header-title">
+    <div class="trip-name">Aurora's 5th Birthday — Disney World 2027</div>
+    <div class="trip-sub">Prepared by Cloud Nueve Travels · Pending January 2027 Booking Release</div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-left">
+    <h1>A <em>Royal</em> Celebration<br>at the Most Magical Place on Earth</h1>
+    <p>Pre-planning guide for Rudsena & Aurora's January 2027 Disney World birthday trip</p>
+  </div>
+  <div class="hero-chips">
+    <span class="chip">✨ Aurora's 5th Birthday</span>
+    <span class="chip">📅 January 2027</span>
+    <span class="chip">👩‍👧 Party of 2–3</span>
+    <span class="chip">🏰 Disney World, Orlando</span>
+    <span class="chip">🚗 Car-Free Trip</span>
+  </div>
+</div>
+
+<!-- ══ TAB BAR ══ -->
+<nav class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="showTab('dates',this)"><span class="tab-icon">📅</span>Dates & Crowds</button>
+  <button class="tab-btn" onclick="showTab('hotels',this)"><span class="tab-icon">🏨</span>Hotel Options</button>
+  <button class="tab-btn" onclick="showTab('tickets',this)"><span class="tab-icon">🎟️</span>Tickets & Dining Plans</button>
+  <button class="tab-btn" onclick="showTab('bbb',this)"><span class="tab-icon">👑</span>Bibbidi Bobbidi Boutique</button>
+  <button class="tab-btn" onclick="showTab('dining',this)"><span class="tab-icon">🍽️</span>Character Dining</button>
+  <button class="tab-btn" onclick="showTab('transport',this)"><span class="tab-icon">🚌</span>Transportation</button>
+  <button class="tab-btn" onclick="showTab('questionnaire',this)"><span class="tab-icon">📝</span>Questionnaire</button>
+</nav>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 1: DATES & CROWDS                      -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-dates">
+  <div class="sec-head">
+    <h2>When to Go in January 2027</h2>
+    <p>Crowd levels, events to know, and the best timing strategy for Aurora's birthday</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">⭐ Sweet Spot Recommendation</div>
+    Based on historical patterns, <strong>January 9–14, 2027</strong> is the projected best window — after New Year's break and Marathon Weekend crowds clear, and before the MLK Day holiday surge. <strong>Avoid January 14–19</strong> (MLK Weekend is very busy) and the first week of January (Marathon Weekend + school breaks). <a href="https://wdwprepschool.com/disney-world-january/" class="inline-link" target="_blank">Full January 2027 crowd guide →</a>
+  </div>
+
+  <div class="tip-grid tip-grid-2x3">
+    <div class="tip-card">
+      <div class="tip-icon">🏃</div>
+      <div class="tip-title">RunDisney Marathon Weekend</div>
+      <div class="tip-text">Typically Jan 7–10. Thousands of runners + families fill the parks and All-Star resorts. Avoid this week for shorter waits. <a href="https://www.rundisney.com/race-season-calendar" class="inline-link" target="_blank">RunDisney Race Calendar ↗</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎨</div>
+      <div class="tip-title">EPCOT Festival of the Arts</div>
+      <div class="tip-text">Typically Jan 15–late Feb. Broadway shows, art & special food — <strong>included with your park ticket!</strong> A stunning bonus for an already magical trip. <a href="https://disneyworld.disney.go.com/entertainment/epcot/epcot-international-festival-of-the-arts/" class="inline-link" target="_blank">Festival info ↗</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🌡️</div>
+      <div class="tip-title">January Weather</div>
+      <div class="tip-text">Average highs ~70°F (21°C), cool mornings in the 50s. No humidity. Pack layers for the little ones — mornings can be chilly but afternoons are perfect.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⏰</div>
+      <div class="tip-title">Shorter Park Hours</div>
+      <div class="tip-text">January parks often close 8–9pm vs. 11pm in peak season. Plan fireworks and character dining timing accordingly. Bonus: shorter lines throughout the day!</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎡</div>
+      <div class="tip-title">Skyliner Refurbishment</div>
+      <div class="tip-text">Disney historically closes the Skyliner gondola for maintenance in late January (~Jan 25–31). Pop Century & Art of Animation guests use buses during this window.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📱</div>
+      <div class="tip-title">Crowd Calendar Tools</div>
+      <div class="tip-text">Track daily crowd predictions as January 2027 approaches. <a href="https://touringplans.com/walt-disney-world/crowd-calendar" class="inline-link" target="_blank">TouringPlans</a> · <a href="https://wdwprepschool.com/disney-world-january/" class="inline-link" target="_blank">WDW Prep School</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 2: HOTELS                              -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-hotels">
+  <div class="sec-head">
+    <h2>Hotel Options</h2>
+    <p>Ordered from most affordable → most expensive. All on-property options include complimentary Disney transportation — no car needed.</p>
+  </div>
+
+  <div class="callout mauve">
+    <div class="callout-title">🚌 No Car? No Problem.</div>
+    Every Disney Resort hotel includes <strong>free bus service to all 4 parks, Disney Springs & water parks</strong>. Select resorts also add Skyliner gondola, boat, or monorail access. All properties below are fully car-free friendly. January 2027 pricing not yet released — quotes will be confirmed once Disney opens booking.
+  </div>
+
+  <div class="card-grid">
+
+    <!-- All-Star Movies -->
+    <div class="h-card">
+      <div class="h-card-badge badge-value">VALUE RESORT · Most Affordable</div>
+      <div class="h-card-body">
+        <div class="h-card-name"><a href="https://disneyworld.disney.go.com/resorts/all-star-movies-resort/" target="_blank">Disney's All-Star Movies Resort ↗</a></div>
+        <div class="tag-row">
+          <span class="tag">Sleeps up to 4</span>
+          <span class="tag peach">Bus Only</span>
+          <span class="tag green">Animal Kingdom Area</span>
+        </div>
+        <div class="h-card-desc">Celebrate Disney film legends — 101 Dalmatians, Toy Story, The Little Mermaid come to life in bold, colorful decor. Perfect for families focused on spending time in the parks rather than the resort.</div>
+        <ul class="feat-list">
+          <li>Fantasia-themed pool · Playground · Arcade</li>
+          <li>World Premiere Food Court (quick service)</li>
+          <li>Movies Under the Stars (outdoor screenings)</li>
+          <li>Lightning Lane booking 7 days in advance</li>
+          <li>Free bus to all 4 parks & Disney Springs</li>
+        </ul>
+        <div class="price-box">
+          <div class="price-label">Estimated Nightly Rate (Jan Low Season)</div>
+          <div class="price-range">~$150 – $205 / night</div>
+          <div class="price-note">Based on 2026 rack rates (tax incl.). January is among the cheapest periods of the year. Jan 2027 pricing TBD upon Disney release.</div>
+        </div>
+        <a href="https://disneyworld.disney.go.com/resorts/all-star-movies-resort/rates-rooms/" class="btn-link" target="_blank">View Room Rates ↗</a>
+        <a href="https://www.mousesavers.com/2026-all-star-movies-room-rates-season-dates/" class="btn-link outline" target="_blank" style="margin-left:6px">Rate Guide ↗</a>
+      </div>
+    </div>
+
+    <!-- All-Star Music -->
+    <div class="h-card">
+      <div class="h-card-badge badge-value">VALUE RESORT · Best for 3 Guests</div>
+      <div class="h-card-body">
+        <div class="h-card-name"><a href="https://disneyworld.disney.go.com/resorts/all-star-music-resort/" target="_blank">Disney's All-Star Music Resort ↗</a></div>
+        <div class="tag-row">
+          <span class="tag">Suites sleep up to 6</span>
+          <span class="tag peach">Bus Only</span>
+          <span class="tag green">Animal Kingdom Area</span>
+        </div>
+        <div class="h-card-desc">The standout choice if Grandma joins! Family Suites sleep up to 6 with <strong>2 bathrooms and a mini-kitchen</strong> — the whole party stays together comfortably at a value price.</div>
+        <ul class="feat-list">
+          <li><strong>Family Suites: 2 bathrooms + mini-kitchen, up to 6 guests</strong></li>
+          <li>Guitar-shaped pool · Playground · Arcade</li>
+          <li>Intermission Food Court · Movies Under the Stars</li>
+          <li>Lightning Lane booking 7 days in advance</li>
+          <li>Free bus to all 4 parks & Disney Springs</li>
+        </ul>
+        <div class="price-box">
+          <div class="price-label">Estimated Nightly Rate (Jan Low Season)</div>
+          <div class="price-range">Standard: ~$150–$210 / night<br>Family Suite: ~$250–$310 / night</div>
+          <div class="price-note">Suite pricing based on 2026 data. Excellent value for a group of 3 — avoids needing two rooms.</div>
+        </div>
+        <a href="https://disneyworld.disney.go.com/resorts/all-star-music-resort/rates-rooms/" class="btn-link" target="_blank">View Room Rates ↗</a>
+        <a href="https://www.mousesavers.com/2026-all-star-music-room-rates-season-dates/" class="btn-link outline" target="_blank" style="margin-left:6px">Rate Guide ↗</a>
+      </div>
+    </div>
+
+    <!-- Pop Century -->
+    <div class="h-card">
+      <div class="h-card-badge badge-value">VALUE RESORT · Skyliner Access</div>
+      <div class="h-card-body">
+        <div class="h-card-name"><a href="https://disneyworld.disney.go.com/resorts/pop-century-resort/" target="_blank">Disney's Pop Century Resort ↗</a></div>
+        <div class="tag-row">
+          <span class="tag">Sleeps up to 4</span>
+          <span class="tag peach">Skyliner + Bus</span>
+          <span class="tag green">Wide World of Sports Area</span>
+        </div>
+        <div class="h-card-desc">The transport upgrade pick — Pop Century has its own <strong>Disney Skyliner gondola station</strong> giving direct access to EPCOT & Hollywood Studios. Aurora will love floating through the sky! Freshly refreshed rooms through 2025–26.</div>
+        <ul class="feat-list">
+          <li><strong>Disney Skyliner gondola to EPCOT & Hollywood Studios</strong></li>
+          <li>Pool with water jets · Jogging trail · Arcade</li>
+          <li>Everything Pop Food Court + dining variety</li>
+          <li>Refreshed modern rooms (wood-style floors)</li>
+          <li>Lightning Lane booking 7 days in advance</li>
+        </ul>
+        <div class="price-box">
+          <div class="price-label">Estimated Nightly Rate (Jan Low Season)</div>
+          <div class="price-range">~$175 – $230 / night</div>
+          <div class="price-note">Slightly above All-Stars due to Skyliner perk. ⚠️ Note: Skyliner refurb typically late January — buses serve as backup.</div>
+        </div>
+        <a href="https://disneyworld.disney.go.com/resorts/pop-century-resort/rates-rooms/" class="btn-link" target="_blank">View Room Rates ↗</a>
+        <a href="https://www.magicalresortguide.com/pop-century-homepage" class="btn-link outline" target="_blank" style="margin-left:6px">Resort Guide ↗</a>
+      </div>
+    </div>
+
+    <!-- Port Orleans -->
+    <div class="h-card">
+      <div class="h-card-badge badge-moderate">MODERATE RESORT</div>
+      <div class="h-card-body">
+        <div class="h-card-name"><a href="https://disneyworld.disney.go.com/resorts/port-orleans-resort-french-quarter/" target="_blank">Port Orleans – French Quarter ↗</a></div>
+        <div class="tag-row">
+          <span class="tag">Sleeps up to 4</span>
+          <span class="tag peach">Boat + Bus</span>
+          <span class="tag green">Disney Springs Area</span>
+        </div>
+        <div class="h-card-desc">New Orleans charm along a winding river — the most picturesque and serene moderate resort. Boat rides to Disney Springs included! Some rooms overlook the Sassagoula River. A meaningful step up in ambiance and recreation.</div>
+        <ul class="feat-list">
+          <li>Pool with waterslide · Scat Cat's Club lounge</li>
+          <li>Horse-drawn carriage rides</li>
+          <li><strong>Boat to Disney Springs + Bus service</strong></li>
+          <li>Bike/watercraft rentals · Catch & release fishing</li>
+          <li>Lightning Lane booking 7 days in advance</li>
+        </ul>
+        <div class="price-box">
+          <div class="price-label">Estimated Nightly Rate (Jan Low Season)</div>
+          <div class="price-range">~$260 – $380 / night</div>
+          <div class="price-note">Moderate tier. A meaningful jump in theming, activities & dining variety over Value resorts.</div>
+        </div>
+        <a href="https://disneyworld.disney.go.com/resorts/port-orleans-resort-french-quarter/rates-rooms/" class="btn-link" target="_blank">View Room Rates ↗</a>
+        <a href="https://www.magicalresortguide.com/pofq-homepage" class="btn-link outline" target="_blank" style="margin-left:6px">Resort Guide ↗</a>
+      </div>
+    </div>
+
+    <!-- Drury -->
+    <div class="h-card" style="border-color: var(--peach); border-width: 2px;">
+      <div class="h-card-badge badge-offsite">OFFICIAL WDW® HOTEL · Off-Property</div>
+      <div class="h-card-body">
+        <div class="h-card-name"><a href="https://www.druryhotels.com/locations/orlando-fl/drury-plaza-hotel-orlando" target="_blank">Drury Plaza Hotel Orlando – Disney Springs® Area ↗</a></div>
+        <div class="tag-row">
+          <span class="tag">Sleeps up to 4 (rooms) / 6 (suites)</span>
+          <span class="tag peach">Free Shuttle to All 4 Parks</span>
+          <span class="tag green">½ Mile to Disney Springs</span>
+        </div>
+        <div class="h-card-desc">An <strong>Official Walt Disney World® Hotel</strong> — not just a partner hotel. Rudsena gets early park entry, full Disney transport perks, and an extraordinary suite of free amenities that make this the best value off-property pick in the area.</div>
+        <ul class="feat-list">
+          <li><strong>Free Drury shuttle to all 4 parks + Disney Springs + Water Parks</strong> (hourly, no reservations)</li>
+          <li><strong>Early Theme Park Entry</strong> — 30 min before the public (same as on-property!)</li>
+          <li><strong>Free hot breakfast daily</strong> (truly free, every guest)</li>
+          <li><strong>5:30 Kickback®</strong> — free hot dinner buffet + 3 free alcoholic drinks nightly</li>
+          <li>Saltwater pool + splash pad (Aurora will love this!)</li>
+          <li>No resort fees · Free Wi-Fi · Starbucks + Pizza Hut Express on-site</li>
+          <li>Connect to My Disney Experience App · Annual Passholder discount 15%</li>
+        </ul>
+        <div class="price-box">
+          <div class="price-label">Estimated Nightly Rate (Jan Low Season)</div>
+          <div class="price-range">~$140 – $220 / night</div>
+          <div class="price-note">⚠️ Agent note: Shuttle is 3rd-party operated; some reviews note occasional delays on busy event nights. 15-min walk to Disney Springs provides bus access as backup. No resort fee is a meaningful savings vs. Disney hotels.</div>
+        </div>
+        <a href="https://www.druryhotels.com/locations/orlando-fl/drury-plaza-hotel-orlando" class="btn-link" target="_blank">Book at Drury ↗</a>
+        <a href="https://disneyspringshotels.com/hotels/drury-plaza-hotel-orlando-disney-springs/" class="btn-link outline" target="_blank" style="margin-left:6px">Disney Springs Hotels ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 3: TICKETS & DINING PLANS              -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-tickets">
+  <div class="sec-head">
+    <h2>Park Tickets & Dining Plans</h2>
+    <p>January 2027 pricing not yet released — all figures based on current 2026 pricing patterns for the same low season window.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">💡 Key Ticket Facts for This Trip</div>
+    Disney uses <strong>date-based dynamic pricing</strong> — January low-season is among the cheapest of the year. <strong>Children under age 3 enter FREE.</strong> Aurora (age 5) falls in the child 3–9 tier. Multi-day tickets offer dramatically lower per-day costs. Buy via <a href="https://disneyworld.disney.go.com/admission/tickets/" class="inline-link" target="_blank">Disney directly</a> or save slightly via authorized reseller <a href="https://www.undercovertourist.com/orlando/walt-disney-world-resort/" class="inline-link" target="_blank">Undercover Tourist</a>.
+  </div>
+
+  <h3 style="font-family:var(--font-display); font-size:20px; color:var(--mauve-deep); margin-bottom:16px;">🎟️ Ticket Options — WITHOUT Dining Plan</h3>
+  <div class="ticket-grid">
+
+    <div class="ticket-card">
+      <div class="ticket-card-head">
+        <div class="t-name">1-Day Base Ticket</div>
+        <div class="t-sub">Single park per day</div>
+      </div>
+      <div class="ticket-card-body">
+        <div class="ticket-price-row"><span class="who">Adult (10+) — Jan Low Season</span><span class="amt">~$119–$150</span></div>
+        <div class="ticket-price-row"><span class="who">Child (3–9) — Aurora</span><span class="amt">~$114–$145</span></div>
+        <div class="ticket-price-row"><span class="who">Child under 3</span><span class="amt">FREE</span></div>
+        <div class="ticket-note">Prices vary by park & date. Magic Kingdom is priciest; Animal Kingdom is most affordable. Tax not included (6.5%).</div>
+      </div>
+      <div class="ticket-actions">
+        <a href="https://disneyworld.disney.go.com/admission/tickets/" class="btn-link" target="_blank">Learn More ↗</a>
+      </div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-card-head">
+        <div class="t-name">2-Day Base Ticket</div>
+        <div class="t-sub">Single park per day, 2 days</div>
+      </div>
+      <div class="ticket-card-body">
+        <div class="ticket-price-row"><span class="who">Adult — per day</span><span class="amt">~$110–$135</span></div>
+        <div class="ticket-price-row"><span class="who">Child (3–9) — per day</span><span class="amt">~$105–$130</span></div>
+        <div class="ticket-note">Valid any 2 days within a 4-day window from start date. Per-day cost begins to drop vs. 1-day tickets.</div>
+      </div>
+      <div class="ticket-actions">
+        <a href="https://disneyworld.disney.go.com/admission/tickets/" class="btn-link" target="_blank">Learn More ↗</a>
+      </div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-card-head" style="background: linear-gradient(135deg, var(--mauve-deep), var(--peach));">
+        <div class="t-name">4-Day Base Ticket ⭐</div>
+        <div class="t-sub">Best per-day value for this trip</div>
+      </div>
+      <div class="ticket-card-body">
+        <div class="ticket-price-row"><span class="who">Adult — per day</span><span class="amt">~$85–$105</span></div>
+        <div class="ticket-price-row"><span class="who">Child (3–9) — per day</span><span class="amt">~$80–$100</span></div>
+        <div class="ticket-note">4-day tickets are the sweet spot for most families. Valid any 4 days within a 7-day window. Per-day cost drops significantly vs. shorter tickets.</div>
+      </div>
+      <div class="ticket-actions">
+        <a href="https://disneyworld.disney.go.com/admission/tickets/" class="btn-link" target="_blank">Learn More ↗</a>
+      </div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-card-head">
+        <div class="t-name">Park Hopper Add-On</div>
+        <div class="t-sub">Visit multiple parks per day</div>
+      </div>
+      <div class="ticket-card-body">
+        <div class="ticket-price-row"><span class="who">Add-on cost (any ticket)</span><span class="amt">+$80–$100/ticket</span></div>
+        <div class="ticket-price-row"><span class="who">Hopper 1-day total (adult)</span><span class="amt">~$195–$260</span></div>
+        <div class="ticket-note">Allows visiting more than one park per day after 2pm. Worth it for a Bibbidi Bobbidi Boutique morning at MK + EPCOT evening combo!</div>
+      </div>
+      <div class="ticket-actions">
+        <a href="https://disneyworld.disney.go.com/tickets-visit-guide/" class="btn-link" target="_blank">Learn More ↗</a>
+        <a href="https://www.mousesavers.com/regular-walt-disney-world-ticket-prices/" class="btn-link outline" target="_blank">Price Guide ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="star-divider">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <h3 style="font-family:var(--font-display); font-size:20px; color:var(--mauve-deep); margin:16px 0;">🍽️ Dining Plan Options — WITH Vacation Package</h3>
+
+  <div class="callout mauve">
+    <div class="callout-title">⭐ Free Kids Dining Plan (2026 Perk)</div>
+    For 2026 vacation packages, <strong>kids ages 3–9 dine FREE</strong> when a paying adult purchases a dining plan with a minimum 4-night stay + 4-day Park Hopper ticket. This perk could save hundreds on food across a 4–5 night trip. January 2027 equivalent offers expected — confirm when booking opens. <a href="https://disneyworld.disney.go.com/vacation-planning/" class="inline-link" target="_blank">Disney packages page →</a>
+  </div>
+
+  <div class="dp-grid">
+    <div class="dp-card">
+      <h3>Quick-Service Dining Plan</h3>
+      <div class="dp-price">$60.47 <small>/ adult / night (tax incl.)</small></div>
+      <div class="dp-includes">Kids 3–9: FREE with qualifying package · Per night: 1 quick-service meal + 1 snack</div>
+      <ul class="dp-list">
+        <li>1 Quick-Service meal per night (entree + drink)</li>
+        <li>1 Snack credit per night</li>
+        <li>Reusable resort mug (unlimited refills at resort)</li>
+        <li>Best for: families who prefer grab-and-go dining</li>
+        <li>Not valid for: character dining or table service</li>
+      </ul>
+      <a href="https://disneyworld.disney.go.com/dining/plans/" class="btn-link" target="_blank" style="margin-top:12px">Disney Dining Plan Details ↗</a>
+    </div>
+
+    <div class="dp-card featured">
+      <h3>Standard Disney Dining Plan ⭐</h3>
+      <div class="dp-price">$98.59 <small>/ adult / night (tax incl.)</small></div>
+      <div class="dp-includes">Kids 3–9: FREE with qualifying package · Per night: 1 table service + 1 quick-service + 1 snack</div>
+      <ul class="dp-list">
+        <li>1 Table-Service meal credit per night (character dining!)</li>
+        <li>1 Quick-Service meal per night</li>
+        <li>1 Snack credit per night</li>
+        <li>Reusable resort mug (unlimited refills at resort)</li>
+        <li>Best for: families doing 1 character meal per day</li>
+        <li>Cinderella's Royal Table & Akershus require <strong>2 credits</strong> at lunch/dinner (1 at breakfast)</li>
+      </ul>
+      <a href="https://disneyworld.disney.go.com/dining/plans/" class="btn-link" target="_blank" style="margin-top:12px">Disney Dining Plan Details ↗</a>
+    </div>
+
+    <div class="dp-card">
+      <h3>Pay As You Go (No Plan)</h3>
+      <div class="dp-price" style="color:var(--mauve);">$0 <small>/ night added cost</small></div>
+      <div class="dp-includes">Pay only for what you eat. More flexibility, less commitment.</div>
+      <ul class="dp-list">
+        <li>Quick-service entrees average $14–$18/person</li>
+        <li>Table-service avg $30–$50/adult, $15–$25/child</li>
+        <li>Character dining $33–$54/child, $49–$88/adult</li>
+        <li>Best for: shorter trips or selective dining</li>
+        <li>Children under 3 eat free at all buffets</li>
+      </ul>
+      <a href="https://www.mousesavers.com/disney-dining-plan/" class="btn-link outline" target="_blank" style="margin-top:12px">Is the Dining Plan Worth It? ↗</a>
+    </div>
+  </div>
+
+  <div class="callout mt24">
+    <div class="callout-title">🎟️ Ticket Resources</div>
+    For pricing and ticket details: <a href="https://www.mousesavers.com/regular-walt-disney-world-ticket-prices/" class="inline-link" target="_blank">MouseSavers Price Guide</a> · <a href="https://disneyworld.disney.go.com/admission/tickets/" class="inline-link" target="_blank">Official Disney Tickets</a> · <a href="https://disneyworld.disney.go.com/destinations/florida-residents-tickets-passes/" class="inline-link" target="_blank">Florida Resident Discounts</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 4: BIBBIDI BOBBIDI BOUTIQUE           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-bbb">
+  <div class="sec-head">
+    <h2>Bibbidi Bobbidi Boutique</h2>
+    <p>Princess makeover experience inside Cinderella Castle at Magic Kingdom — ages 3–12 · <a href="https://disneyworld.disney.go.com/shops/magic-kingdom/bibbidi-bobbidi-boutique-park/" class="inline-link" target="_blank">Official Disney Page →</a></p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">🎂 Perfect for Aurora's 5th Birthday</div>
+    At age 5, Aurora is in the ideal sweet spot for Bibbidi Bobbidi Boutique. The Fairy Godmother herself now makes <strong>special appearances</strong> to bless each little royal! Transformations take <strong>60–90 minutes</strong>. Located right behind Cinderella Castle inside Magic Kingdom. <strong>Book exactly 60 days before your check-in date at midnight Eastern</strong> — reservations disappear within minutes of opening.
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Package</th>
+        <th>What's Included</th>
+        <th>Starting Price</th>
+        <th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="pkg-badge pkg-d">Fairy Tale Package</span></td>
+        <td>Hairstyle of choice · Shimmering makeup & nail polish · Princess sash & cinch bag · BBB t-shirt</td>
+        <td><strong>~$99–$175+</strong></td>
+        <td>Best if Rudsena is bringing Aurora's own princess dress — all the magic at a lower price point</td>
+      </tr>
+      <tr>
+        <td><span class="pkg-badge pkg-b">Enchantment Package</span></td>
+        <td>Hairstyle · Shimmering makeup & nail polish · Sash & cinch bag · Trendy tutu · BBB t-shirt · Headband</td>
+        <td><strong>Starting ~$174.99</strong></td>
+        <td>Middle option — princess-in-training look without a full gown</td>
+      </tr>
+      <tr>
+        <td><span class="pkg-badge pkg-c">Kingdom Package ⭐</span></td>
+        <td>Hairstyle · Shimmering makeup & nail polish · Disney Princess <strong>gown of choice</strong> · Crown & wand · Princess necklace · Sash & cinch bag</td>
+        <td><strong>Starting at $229.99</strong><br><span class="text-sm">Premium gowns (Sleeping Beauty / Aurora, Elsa, Belle, Cinderella) priced higher</span></td>
+        <td>The full royal experience — Aurora in her namesake Sleeping Beauty gown is unforgettable</td>
+      </tr>
+      <tr>
+        <td><span class="pkg-badge pkg-a">Adventure Package</span></td>
+        <td>Knight shirt · Hairstyling with gel · Mighty sword & shield</td>
+        <td><strong>Starting ~$59.99</strong></td>
+        <td>For young knights if a male guest joins the party</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-grid mt24">
+    <div class="tip-card">
+      <div class="tip-icon">📅</div>
+      <div class="tip-title">On-Property Booking Advantage</div>
+      <div class="tip-text">On-property Disney resort guests book 60 days before <strong>check-in + 10 rolling days</strong> of stay. Off-property guests can only book 60 days out for one specific day at a time. Staying on-site gives a meaningful booking advantage. <a href="https://www.adventuresofadisneydad.com/blog/bibbidi-bobbidi-boutique" class="inline-link" target="_blank">Full booking guide →</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">👗</div>
+      <div class="tip-title">Bring Your Own Dress</div>
+      <div class="tip-text">Rudsena can bring Aurora's own princess gown to the appointment — the Fairy Godmother's Apprentices will style hair, makeup & accessories around it. A great budget-friendly approach. <a href="https://www.adventuresofadisneydad.com/blog/bibbidi-bobbidi-boutique-packages-and-dresses" class="inline-link" target="_blank">Dress & package options →</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💅</div>
+      <div class="tip-title">Arrival Prep</div>
+      <div class="tip-text">Hair must be freshly washed, brushed, and free of all products & accessories. Fingernails clean and polish-free. Check in at the Boutique entrance right behind Cinderella Castle — no more than 5 minutes early.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">💳</div>
+      <div class="tip-title">Cancellation Policy</div>
+      <div class="tip-text">$10 fee for no-shows or cancellations within 24 hours. Credit card required at booking but not charged until visit. <a href="https://disneyworld.disney.go.com/shops/magic-kingdom/bibbidi-bobbidi-boutique-park/" class="inline-link" target="_blank">Official details →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 5: CHARACTER DINING                    -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-dining">
+  <div class="sec-head">
+    <h2>Character Dining Options</h2>
+    <p>Characters come directly to your table — no lines! Ordered from most affordable → most expensive. <a href="https://disneyworld.disney.go.com/dining/character/" class="inline-link" target="_blank">Disney Character Dining overview →</a></p>
+  </div>
+
+  <div class="callout mauve">
+    <div class="callout-title">💡 Key Planning Notes</div>
+    All character meals require <strong>Advance Dining Reservations (ADRs)</strong> bookable up to 60 days in advance via <a href="https://disneyworld.disney.go.com/dining/" class="inline-link" target="_blank">My Disney Experience</a>. <strong>Breakfast is always the most affordable</strong> meal at every restaurant. Aurora (age 5) is in the child 3–9 pricing tier. Children under 3 eat FREE at buffets. Prices below exclude tax (6.5%) and gratuity (~18–20%).
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Restaurant</th>
+        <th>Location</th>
+        <th>Characters</th>
+        <th>Adult (Breakfast)</th>
+        <th>Child 3–9 (Breakfast)</th>
+        <th>Dinner / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/magic-kingdom/crystal-palace/" target="_blank">The Crystal Palace ↗</a></strong></td>
+        <td>Magic Kingdom</td>
+        <td>Winnie the Pooh, Tigger, Piglet, Eeyore</td>
+        <td>~$54</td>
+        <td>~$35</td>
+        <td>Dinner ~$62 adult / $42 child. Buffet. Beloved Pooh characters — gentle & great for little ones.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/hollywood-studios/hollywood-and-vine/" target="_blank">Hollywood & Vine ↗</a></strong></td>
+        <td>Hollywood Studios</td>
+        <td>Minnie, Mickey, Goofy, Pluto (seasonal costumes)</td>
+        <td>~$49</td>
+        <td>~$33</td>
+        <td>Dinner ~$64 adult / $44 child. January = special winter theme costumes. Buffet.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/disney-springs/tusker-house-restaurant/" target="_blank">Tusker House ↗</a></strong></td>
+        <td>Animal Kingdom</td>
+        <td>Mickey, Donald, Daisy, Goofy (safari gear)</td>
+        <td>~$52</td>
+        <td>~$33</td>
+        <td>Lunch ~$64 adult / $42 child. Family-style. Fun safari costumes on characters.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/polynesian-village-resort/ohana/" target="_blank">'Ohana (Breakfast) ↗</a></strong></td>
+        <td>Polynesian Resort</td>
+        <td>Lilo, Stitch, Mickey, Pluto</td>
+        <td>~$53</td>
+        <td>~$33</td>
+        <td>Breakfast only for characters. Family-style. Stitch is a massive kid-pleaser! Book early.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/riviera-resort/topolinos-terrace/" target="_blank">Topolino's Terrace ↗</a></strong></td>
+        <td>Riviera Resort (Skyliner)</td>
+        <td>Mickey, Minnie, Donald, Daisy (artist outfits)</td>
+        <td>~$54</td>
+        <td>~$33</td>
+        <td>Breakfast only for characters. Stunning rooftop restaurant — Skyliner accessible. Highly rated.</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/epcot/akershus-royal-banquet-hall/" target="_blank">Akershus Royal Banquet Hall ⭐ ↗</a></strong></td>
+        <td>EPCOT (Norway)</td>
+        <td>Belle, Ariel, <strong>Princess Aurora</strong>, Snow White, Tiana, Jasmine</td>
+        <td>~$59</td>
+        <td>~$38</td>
+        <td>Lunch/Dinner ~$69 adult / $46 child. <strong>Aurora meets Aurora!</strong> EPCOT Festival of the Arts runs Jan–Feb — bonus!</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/grand-floridian-resort-and-spa/1900-park-fare/" target="_blank">1900 Park Fare ↗</a></strong></td>
+        <td>Grand Floridian Resort</td>
+        <td>Cinderella, Mirabel, Aladdin, Princess Tiana (varies)</td>
+        <td>~$58</td>
+        <td>~$37</td>
+        <td>Dinner ~$69 adult / $44 child. Buffet. Inside the iconic Grand Floridian — no park ticket needed!</td>
+      </tr>
+      <tr>
+        <td><strong><a href="https://disneyworld.disney.go.com/dining/magic-kingdom/cinderella-royal-table/" target="_blank">Cinderella's Royal Table 👑 ↗</a></strong></td>
+        <td>Inside Cinderella Castle</td>
+        <td>Cinderella, Snow White, Ariel, Aurora, Jasmine</td>
+        <td>~$74</td>
+        <td>~$45</td>
+        <td>Lunch/Dinner ~$88–$89 adult / $52–$54 child. Dining INSIDE the Castle. Hardest reservation to get. Worth it for a birthday!</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout mt24">
+    <div class="callout-title">🎂 Birthday Dining Recommendation</div>
+    For Aurora's 5th birthday, <strong>Cinderella's Royal Table</strong> (breakfast inside the Castle = most affordable meal there, ~$74 adult/$45 child) or <strong>Akershus Royal Banquet Hall</strong> (meet Princess Aurora herself!) are the most magical choices. Always notify the restaurant at booking that it's a birthday — Cast Members often arrange a special surprise at the table!
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 6: TRANSPORTATION                      -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-transport">
+  <div class="sec-head">
+    <h2>Transportation — Car-Free Guide</h2>
+    <p>Rudsena does not drive. Here is every transportation option needed to get from the airport to the parks and back.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">✅ Good News</div>
+    A Disney World trip is 100% manageable without a car — especially in January when crowds are lighter and wait times for buses are shorter. Every hotel on this list provides complimentary transportation to all parks.
+  </div>
+
+  <div class="tip-grid tip-grid-2x3">
+    <div class="tip-card">
+      <div class="tip-icon">✈️</div>
+      <div class="tip-title">MCO Airport → Resort</div>
+      <div class="tip-text"><strong>Mears Connect</strong> is Disney's preferred shared shuttle from Orlando International Airport — reliable, affordable, direct to Disney hotels. Book in advance. <a href="https://www.mearsconnect.com/" class="inline-link" target="_blank">Mears Connect ↗</a> · Uber/Lyft also available (~$30–$45 from MCO).</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚌</div>
+      <div class="tip-title">Disney Buses (On-Property)</div>
+      <div class="tip-text">All 4 on-property resorts include free Disney bus service to all parks, Disney Springs & water parks. Buses run ~1 hour before park open to ~1 hour after close. No reservations needed. <a href="https://disneyworld.disney.go.com/guest-services/resort-transportation/" class="inline-link" target="_blank">Disney Transportation Guide ↗</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚡</div>
+      <div class="tip-title">Disney Skyliner (Gondola)</div>
+      <div class="tip-text">Pop Century & Art of Animation guests get gondola access to EPCOT & Hollywood Studios. Aurora will love floating through the sky! Note: late January refurb ~Jan 25–31 means buses only during that window. <a href="https://disneyworld.disney.go.com/guest-services/skyliner/" class="inline-link" target="_blank">Skyliner info ↗</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⛵</div>
+      <div class="tip-title">Boats & Monorail</div>
+      <div class="tip-text">Port Orleans guests can take a boat to Disney Springs. Disney monorail connects Magic Kingdom area resorts to the park and Ticket & Transportation Center. Not available from Value resorts.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🏨</div>
+      <div class="tip-title">Drury Hotel Shuttle</div>
+      <div class="tip-text">Free hourly Drury shuttle to all 4 parks, Disney Springs & water parks. No reservation needed for standard service. Late-night return service on select event nights. <a href="https://www.druryplazahotelorlando.com/" class="inline-link" target="_blank">Drury transportation info ↗</a></div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📍</div>
+      <div class="tip-title">Disney Springs Bus Backup</div>
+      <div class="tip-text">If staying at Drury, the 15-min walk to Disney Springs gives access to free Disney buses to all parks — a great backup on busy shuttle days. Disney Springs is also worth visiting on its own for shopping & dining!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TAB 7: QUESTIONNAIRE                       -->
+<!-- ══════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-questionnaire">
+  <div class="sec-head">
+    <h2>Trip Planning Questionnaire</h2>
+    <p>Complete this form so your Cloud Nueve Travels agent can prepare a personalized quote when January 2027 booking opens.</p>
+  </div>
+
+  <div class="q-wrapper">
+    <div class="q-head">
+      <h2>Aurora's Birthday Trip — Tell Us About Your Dream Vacation</h2>
+      <p>Fill out your preferences below. Your responses will be sent directly to your Cloud Nueve Travels agent and a confirmation will be emailed to you.</p>
+    </div>
+    <div class="q-body">
+      <form id="tripForm" onsubmit="submitForm(event)">
+
+        <!-- CONTACT INFO -->
+        <div class="q-section">
+          <div class="q-section-title">✨ Your Contact Information</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">1</span> Full Name <span class="q-required">*</span></div>
+            <input class="q-field" type="text" name="client_name" placeholder="Rudsena..." required>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">2</span> Email Address <span class="q-required">*</span></div>
+            <div class="q-hint">A confirmation copy will be sent to this address</div>
+            <input class="q-field" type="email" name="client_email" placeholder="your@email.com" required>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">3</span> Best Phone Number</div>
+            <input class="q-field" type="tel" name="client_phone" placeholder="(407) 555-0000">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">4</span> Best Time to Reach You</div>
+            <input class="q-field" type="text" name="best_time" placeholder="e.g. Weekday evenings after 6pm">
+          </div>
+        </div>
+
+        <!-- THE BASICS -->
+        <div class="q-section">
+          <div class="q-section-title">🏰 The Basics</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">5</span> Preferred Travel Dates in January 2027 <span class="q-required">*</span></div>
+            <div class="q-hint">e.g. "January 9–14" or "any mid-January week." The more flexible, the better options we can find!</div>
+            <input class="q-field" type="text" name="travel_dates" placeholder="Preferred dates or window..." required>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">6</span> How many nights are you thinking?</div>
+            <div class="q-options" id="opts_nights">
+              <div class="q-opt" onclick="selectOpt(this,'nights')">3 nights</div>
+              <div class="q-opt" onclick="selectOpt(this,'nights')">4 nights</div>
+              <div class="q-opt" onclick="selectOpt(this,'nights')">5 nights</div>
+              <div class="q-opt" onclick="selectOpt(this,'nights')">6 nights</div>
+              <div class="q-opt" onclick="selectOpt(this,'nights')">7 nights</div>
+              <div class="q-opt" onclick="selectOpt(this,'nights')">Advise me!</div>
+            </div>
+            <input type="hidden" name="nights" id="val_nights">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">7</span> Will Grandma be joining?</div>
+            <div class="q-options" id="opts_grandma">
+              <div class="q-opt" onclick="selectOpt(this,'grandma')">Yes — 3 guests total</div>
+              <div class="q-opt" onclick="selectOpt(this,'grandma')">No — just Rudsena & Aurora</div>
+              <div class="q-opt" onclick="selectOpt(this,'grandma')">Possibly — hold room for 3</div>
+            </div>
+            <input type="hidden" name="grandma" id="val_grandma">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">8</span> Approximate overall budget (flights not included)?</div>
+            <div class="q-options" id="opts_budget">
+              <div class="q-opt" onclick="selectOpt(this,'budget')">Under $2,000</div>
+              <div class="q-opt" onclick="selectOpt(this,'budget')">$2,000–$3,500</div>
+              <div class="q-opt" onclick="selectOpt(this,'budget')">$3,500–$5,000</div>
+              <div class="q-opt" onclick="selectOpt(this,'budget')">$5,000+</div>
+              <div class="q-opt" onclick="selectOpt(this,'budget')">Not sure yet — let's explore!</div>
+            </div>
+            <input type="hidden" name="budget" id="val_budget">
+          </div>
+        </div>
+
+        <!-- HOTEL PREFERENCES -->
+        <div class="q-section">
+          <div class="q-section-title">🏨 Hotel Preferences</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">9</span> Which hotel options interest you? (Select all that apply)</div>
+            <div class="q-check-grid" style="margin-left:30px;">
+              <label class="q-check"><input type="checkbox" name="hotels" value="All-Star Movies"> All-Star Movies (Budget)</label>
+              <label class="q-check"><input type="checkbox" name="hotels" value="All-Star Music Suites"> All-Star Music – Suites (Budget / 3 guests)</label>
+              <label class="q-check"><input type="checkbox" name="hotels" value="Pop Century Skyliner"> Pop Century (Skyliner access)</label>
+              <label class="q-check"><input type="checkbox" name="hotels" value="Port Orleans French Quarter"> Port Orleans – French Quarter (Moderate)</label>
+              <label class="q-check"><input type="checkbox" name="hotels" value="Drury Disney Springs"> Drury Hotel – Disney Springs (Off-property)</label>
+              <label class="q-check"><input type="checkbox" name="hotels" value="Open to suggestions"> Open to your recommendations!</label>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">10</span> Open to off-property if comparable perks + significant savings?</div>
+            <div class="q-options" id="opts_offprop">
+              <div class="q-opt" onclick="selectOpt(this,'offprop')">Yes, absolutely!</div>
+              <div class="q-opt" onclick="selectOpt(this,'offprop')">Maybe — tell me more</div>
+              <div class="q-opt" onclick="selectOpt(this,'offprop')">I'd love the full Disney experience</div>
+            </div>
+            <input type="hidden" name="off_property" id="val_offprop">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">11</span> Any special room preferences?</div>
+            <input class="q-field" type="text" name="room_prefs" placeholder="e.g. pool view, ground floor, connecting rooms...">
+          </div>
+        </div>
+
+        <!-- PARK DAYS -->
+        <div class="q-section">
+          <div class="q-section-title">🎢 Park Days & Itinerary</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">12</span> How many park days are you thinking?</div>
+            <div class="q-options" id="opts_parkdays">
+              <div class="q-opt" onclick="selectOpt(this,'parkdays')">1 day</div>
+              <div class="q-opt" onclick="selectOpt(this,'parkdays')">2 days</div>
+              <div class="q-opt" onclick="selectOpt(this,'parkdays')">3 days</div>
+              <div class="q-opt" onclick="selectOpt(this,'parkdays')">4 days</div>
+              <div class="q-opt" onclick="selectOpt(this,'parkdays')">5 days</div>
+              <div class="q-opt" onclick="selectOpt(this,'parkdays')">Help me decide!</div>
+            </div>
+            <input type="hidden" name="park_days" id="val_parkdays">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">13</span> Which parks are must-dos?</div>
+            <div class="q-check-grid" style="margin-left:30px;">
+              <label class="q-check"><input type="checkbox" name="parks" value="Magic Kingdom"> Magic Kingdom (Cinderella Castle!)</label>
+              <label class="q-check"><input type="checkbox" name="parks" value="EPCOT"> EPCOT (Festival of the Arts!)</label>
+              <label class="q-check"><input type="checkbox" name="parks" value="Hollywood Studios"> Hollywood Studios (Toy Story/Star Wars)</label>
+              <label class="q-check"><input type="checkbox" name="parks" value="Animal Kingdom"> Animal Kingdom</label>
+              <label class="q-check"><input type="checkbox" name="parks" value="Water Park"> Water Park (Typhoon Lagoon/Blizzard Beach)</label>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">14</span> Park Hopper (multiple parks/day) or Base Ticket (one park/day)?</div>
+            <div class="q-options" id="opts_hopper">
+              <div class="q-opt" onclick="selectOpt(this,'hopper')">Park Hopper sounds fun!</div>
+              <div class="q-opt" onclick="selectOpt(this,'hopper')">One park per day works for us</div>
+              <div class="q-opt" onclick="selectOpt(this,'hopper')">Happy to hear your thoughts!</div>
+            </div>
+            <input type="hidden" name="park_hopper" id="val_hopper">
+          </div>
+        </div>
+
+        <!-- DINING -->
+        <div class="q-section">
+          <div class="q-section-title">🍽️ Dining Options</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">15</span> Are you interested in a Disney Dining Plan?</div>
+            <div class="q-options" id="opts_diningplan">
+              <div class="q-opt" onclick="selectOpt(this,'diningplan')">Yes, that sounds convenient!</div>
+              <div class="q-opt" onclick="selectOpt(this,'diningplan')">I'd rather pay as I go</div>
+              <div class="q-opt" onclick="selectOpt(this,'diningplan')">I'd love to see the numbers first</div>
+            </div>
+            <input type="hidden" name="dining_plan" id="val_diningplan">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">16</span> Which character dining experience interests you most?</div>
+            <div class="q-check-grid" style="margin-left:30px;">
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Cinderellas Royal Table"> Cinderella's Royal Table (inside the Castle!)</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Akershus"> Akershus — meet Princess Aurora!</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Ohana"> 'Ohana (Lilo & Stitch breakfast)</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Crystal Palace"> Crystal Palace (Winnie the Pooh)</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Topolinos"> Topolino's Terrace (rooftop/gondola resort)</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Hollywood Vine"> Hollywood & Vine (Minnie Seasonal)</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="1900 Park Fare"> 1900 Park Fare (Grand Floridian)</label>
+              <label class="q-check"><input type="checkbox" name="char_dining" value="Open to recommendation"> Open to your recommendation!</label>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">17</span> Any dietary restrictions or allergies?</div>
+            <textarea class="q-field" name="dietary" placeholder="List any allergies or food preferences for any guest..."></textarea>
+          </div>
+        </div>
+
+        <!-- SPECIAL EXPERIENCES -->
+        <div class="q-section">
+          <div class="q-section-title">👑 Special Experiences</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">18</span> Is Bibbidi Bobbidi Boutique a must-do?</div>
+            <div class="q-options" id="opts_bbb">
+              <div class="q-opt" onclick="selectOpt(this,'bbb')">Yes please — this is a must!</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbb')">I'd love it if the budget allows</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbb')">Tell me more about it!</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbb')">Maybe another time</div>
+            </div>
+            <input type="hidden" name="bbb_priority" id="val_bbb">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">19</span> If yes — which BBB package?</div>
+            <div class="q-options" id="opts_bbbpkg">
+              <div class="q-opt" onclick="selectOpt(this,'bbbpkg')">Fairy Tale (~$99–175) — hair & makeup</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbbpkg')">Enchantment (~$175) — tutu & headband</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbbpkg')">Kingdom (~$230+) — the full gown & crown!</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbbpkg')">We'll bring her own dress 👗</div>
+              <div class="q-opt" onclick="selectOpt(this,'bbbpkg')">I'd love your recommendation!</div>
+            </div>
+            <input type="hidden" name="bbb_package" id="val_bbbpkg">
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">20</span> Other special experiences you're interested in?</div>
+            <div class="q-check-grid" style="margin-left:30px;">
+              <label class="q-check"><input type="checkbox" name="extras" value="Lightning Lane"> Lightning Lane Multi Pass (skip lines)</label>
+              <label class="q-check"><input type="checkbox" name="extras" value="After Hours"> After Hours ticketed event</label>
+              <label class="q-check"><input type="checkbox" name="extras" value="Fireworks Party"> Fireworks dessert party</label>
+              <label class="q-check"><input type="checkbox" name="extras" value="Memory Maker"> Disney Memory Maker / PhotoPass</label>
+              <label class="q-check"><input type="checkbox" name="extras" value="Disney Springs"> Disney Springs shopping day</label>
+              <label class="q-check"><input type="checkbox" name="extras" value="Pool Day"> Resort pool rest day</label>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">21</span> What are Aurora's favorite Disney characters or movies?</div>
+            <textarea class="q-field" name="aurora_favs" placeholder="e.g. Sleeping Beauty (Aurora!), Frozen, Moana, Encanto, Cinderella, Toy Story..."></textarea>
+          </div>
+        </div>
+
+        <!-- ANYTHING ELSE -->
+        <div class="q-section">
+          <div class="q-section-title">💬 Anything Else?</div>
+          <div class="q-item">
+            <div class="q-label"><span class="q-num">22</span> Questions, concerns, must-haves, or anything you'd like your agent to know?</div>
+            <textarea class="q-field" name="notes" placeholder="First Disney trip? Nervous about something? Special milestone to celebrate? Share it all!" style="min-height:88px;"></textarea>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-area">
+          <button type="submit" class="btn-submit" id="submitBtn">✨ Send to Cloud Nueve Travels</button>
+          <p style="font-size:11.5px; color:var(--ink-light); margin-top:10px;">Your inquiry will be sent directly to your Cloud Nueve Travels agent. Please allow <strong>3–5 business days</strong> for a response.</p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONFIRMATION MODAL ══ -->
+<div id="confirmModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(61,47,82,0.55); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:24px;">
+  <div style="background:var(--white); border-radius:20px; max-width:480px; width:100%; padding:40px 36px; text-align:center; box-shadow:0 24px 64px rgba(61,47,82,0.3); position:relative; animation: popIn 0.3s ease;">
+    <div style="font-size:52px; margin-bottom:12px;">✨</div>
+    <h2 style="font-family:var(--font-display); font-size:26px; font-weight:700; color:var(--mauve-deep); margin-bottom:10px;">We've Got It!</h2>
+    <p style="font-size:14px; color:var(--ink-mid); line-height:1.7; margin-bottom:6px;">Thank you, <strong id="modalName" style="color:var(--mauve-deep);"></strong>! 🎉</p>
+    <p style="font-size:14px; color:var(--ink-mid); line-height:1.7; margin-bottom:20px;">Your Disney World birthday trip inquiry for <strong style="color:var(--mauve-deep);">Aurora's 5th birthday</strong> has been received by <strong style="color:var(--mauve-deep);">Cloud Nueve Travels</strong>.</p>
+    <div style="background:var(--mauve-faint); border-radius:12px; padding:16px 20px; margin-bottom:24px;">
+      <p style="font-size:13px; color:var(--mauve-dark); font-weight:600; margin-bottom:4px;">⏱️ What happens next?</p>
+      <p style="font-size:13px; color:var(--ink-mid); line-height:1.6;">Your agent will review your preferences and be in touch within <strong style="color:var(--mauve-deep);">3–5 business days</strong> to chat through options and help you get everything in order — so you're ready to go the moment Disney opens up January 2027 booking!</p>
+    </div>
+    <p style="font-size:12px; color:var(--ink-light); margin-bottom:24px;">Can't wait that long? Reach us anytime at <a href="mailto:cloudnuevetravels@gmail.com" style="color:var(--mauve); font-weight:600;">cloudnuevetravels&#64;gmail.com</a></p>
+    <button onclick="closeModal()" style="background:linear-gradient(135deg,var(--mauve-deep),var(--mauve)); color:white; border:none; border-radius:30px; padding:12px 40px; font-family:var(--font-body); font-size:14px; font-weight:700; cursor:pointer; box-shadow:0 4px 16px rgba(61,47,82,0.25);">Back to Planning ✨</button>
+  </div>
+</div>
+
+<!-- ══ ERROR MODAL ══ -->
+<div id="errorModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(61,47,82,0.55); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:24px;">
+  <div style="background:var(--white); border-radius:20px; max-width:440px; width:100%; padding:36px; text-align:center; box-shadow:0 24px 64px rgba(61,47,82,0.3);">
+    <div style="font-size:44px; margin-bottom:12px;">⚠️</div>
+    <h2 style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--mauve-deep); margin-bottom:10px;">Something Went Wrong</h2>
+    <p style="font-size:13.5px; color:var(--ink-mid); line-height:1.7; margin-bottom:20px;">We weren't able to send your form right now. No worries — please email your inquiry directly to your agent and they'll get you sorted!</p>
+    <a href="mailto:cloudnuevetravels@gmail.com?subject=Disney Trip Inquiry" style="display:inline-block; background:var(--mauve); color:white; border-radius:30px; padding:10px 28px; font-size:13px; font-weight:700; text-decoration:none; margin-bottom:12px;">Email Us at cloudnuevetravels&#64;gmail.com ↗</a><br>
+    <button onclick="closeErrorModal()" style="background:none; border:1.5px solid var(--border); border-radius:30px; padding:8px 24px; font-family:var(--font-body); font-size:13px; color:var(--ink-mid); cursor:pointer; margin-top:8px;">Try Again</button>
+  </div>
+</div>
+
+<style>
+@keyframes popIn {
+  from { transform: scale(0.88); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+</style>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  <strong>Cloud Nueve Travels</strong> · Curated Journeys, Elevated Moments<br>
+  <a href="mailto:cloudnuevetravels@gmail.com" style="color:var(--peach-light);">cloudnuevetravels&#64;gmail.com</a><br><br>
+  This document is a pre-planning guide. All prices reflect 2025–2026 Disney data and are subject to change when January 2027 booking opens.<br>
+  Your agent will be in touch once Disney releases January 2027 packages.<br><br>
+  ✦ &nbsp; Wishing Aurora the most magical 5th birthday at the Most Magical Place on Earth &nbsp; ✦
+</footer>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');window.scrollTo({top:document.querySelector('.tab-bar').offsetTop-10,behavior:'smooth'});}
+function selectOpt(el,group){el.closest('.q-options').querySelectorAll('.q-opt').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');document.getElementById('val_'+group).value=el.textContent.trim();}
+function getChecked(name){return Array.from(document.querySelectorAll('input[name="'+name+'"]:checked')).map(function(c){return c.value;}).join(', ')||'None selected';}
+function closeModal(){document.getElementById('confirmModal').style.display='none';}
+function closeErrorModal(){document.getElementById('errorModal').style.display='none';document.getElementById('submitBtn').disabled=false;document.getElementById('submitBtn').textContent='Send to Cloud Nueve Travels';}
+function submitForm(e){
+  e.preventDefault();
+  var btn=document.getElementById('submitBtn');
+  var form=e.target;
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  var payload={
+    _replyto:form.client_email.value,
+    _subject:'New Disney Trip Inquiry - Aurora Birthday ('+form.client_name.value+')',
+    'Name':form.client_name.value,
+    'Email':form.client_email.value,
+    'Phone':form.client_phone.value||'Not provided',
+    'Best Time':form.best_time.value||'Not specified',
+    'Travel Dates':form.travel_dates.value,
+    'Nights':form.nights.value||'Not selected',
+    'Grandma Joining':form.grandma.value||'Not selected',
+    'Budget':form.budget.value||'Not selected',
+    'Hotels':getChecked('hotels'),
+    'Off-Property OK':form.off_property.value||'Not selected',
+    'Room Preferences':form.room_prefs.value||'None',
+    'Park Days':form.park_days.value||'Not selected',
+    'Parks':getChecked('parks'),
+    'Park Hopper':form.park_hopper.value||'Not selected',
+    'Dining Plan':form.dining_plan.value||'Not selected',
+    'Char Dining':getChecked('char_dining'),
+    'Dietary Notes':form.dietary.value||'None',
+    'BBB Priority':form.bbb_priority.value||'Not selected',
+    'BBB Package':form.bbb_package.value||'Not selected',
+    'Extras':getChecked('extras'),
+    'Aurora Favorites':form.aurora_favs.value||'Not provided',
+    'Notes':form.notes.value||'None'
+  };
+  fetch('https://formspree.io/f/xkopjogd',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+  .then(function(res){
+    if(res.ok){
+      document.getElementById('modalName').textContent=form.client_name.value;
+      document.getElementById('confirmModal').style.display='flex';
+      form.reset();
+      document.querySelectorAll('.q-opt.selected').forEach(function(o){o.classList.remove('selected');});
+      btn.textContent='Sent!';
+      setTimeout(function(){btn.disabled=false;btn.textContent='Send to Cloud Nueve Travels';},3000);
+    } else {throw new Error('Failed');}
+  })
+  .catch(function(err){
+    console.error('Error:',err);
+    document.getElementById('errorModal').style.display='flex';
+    btn.disabled=false;
+    btn.textContent='Send to Cloud Nueve Travels';
+  });
+}
+</script>
+</body>
+</html>
